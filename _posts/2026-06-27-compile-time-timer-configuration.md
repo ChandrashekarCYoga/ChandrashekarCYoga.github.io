@@ -55,9 +55,13 @@ configuration cannot silently reach the target.
 The generated firmware can still contain only the final reload value. The abstraction
 exists primarily for the engineer and compiler—not as additional runtime machinery.
 
-## What I would measure
+## How I would validate the claim
 
-A credible embedded conclusion should include:
+A zero-overhead claim should be verified rather than assumed. I would compare
+the raw-integer and strong-type implementations using the same compiler,
+optimization level, target architecture, and linker configuration.
+
+The comparison should include:
 
 1. Compiler and version
 2. Optimization flags
@@ -69,7 +73,16 @@ A credible embedded conclusion should include:
 For example:
 
 ```bash
-arm-none-eabi-g++ -std=c++20 -O2 -mcpu=cortex-m4 -mthumb   -ffunction-sections -fdata-sections timer.cpp -S -o timer.s
+arm-none-eabi-g++ \
+  -std=c++20 \
+  -O2 \
+  -mcpu=cortex-m4 \
+  -mthumb \
+  -ffunction-sections \
+  -fdata-sections \
+  timer.cpp \
+  -S \
+  -o timer.s
 ```
 
 ## Trade-off
