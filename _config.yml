@@ -1,0 +1,33 @@
+title: "Modern Embedded C++"
+description: "Practical Modern C++ for predictable, testable, resource-conscious embedded systems."
+
+url: "https://chandrashekarcyoga.github.io"
+baseurl: ""
+
+author:
+  name: "Chandrashekar C"
+  role: "Embedded Systems and Modern C++ Engineer"
+  github: "ChandrashekarCYoga"
+  linkedin: "YOUR_LINKEDIN_SLUG"
+
+permalink: /articles/:title/
+markdown: kramdown
+highlighter: rouge
+timezone: Asia/Colombo
+
+collections:
+  experiments:
+    output: true
+    permalink: /experiments/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
